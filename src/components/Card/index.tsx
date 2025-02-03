@@ -1,13 +1,15 @@
 import { Monster } from "../../config/types/monsterTypes";
 import NoIcon from "../../assets/images/unknown-icon.png";
 import styled from "styled-components";
+import { getBackgroundColor } from "../../styles/monsterTheme/monsterTheme";
+import { useNavigate } from "react-router-dom";
 
 interface CardProps{
-  key: number;
   item: Monster;
+  onClick: (id: string) => void;
 }
 
-const StyledCard = styled.div`
+const StyledCard = styled.div<{ $item: Monster }>`
   width: 200px;
   height: 200px;
   border-radius: 12px;
@@ -15,8 +17,9 @@ const StyledCard = styled.div`
   padding: 20px;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  background: ${(props) => props.$item.elements[0] ? getBackgroundColor(props.$item.elements[0]) : getBackgroundColor('unknown')};
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5), 
+  5px 5px 5px rgba(0, 0, 0, 0.5) inset;
 `;
 
 const StyledImage = styled.img`
@@ -36,6 +39,9 @@ const StyledUpperContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  :hover{
+      cursor: pointer;
+    }
 `;
 
 const StyledLowerContainer = styled.div`
@@ -44,13 +50,17 @@ const StyledLowerContainer = styled.div`
   text-align: center;
 `;
 
-export default function Card({ item }: CardProps){
+export default function Card({ item, onClick }: CardProps){
+    const navigate = useNavigate();
+
     return(
-    <StyledCard onClick={() => {
-        console.log("click")
-      }}>
+    <StyledCard $item={item}>
         <StyledUpperContainer>
-          <StyledImage src={item.icon === "unknown" ? NoIcon : item.icon}/>
+          <StyledImage onClick={() => {
+            onClick(item.id.toString());
+            navigate(`/MonsterDetails/${item.id}`);
+          }} 
+      src={item.icon === "unknown" ? NoIcon : item.icon}/>
         </StyledUpperContainer>
         <StyledLowerContainer>
           <StyledTitle>{item.name}</StyledTitle> 

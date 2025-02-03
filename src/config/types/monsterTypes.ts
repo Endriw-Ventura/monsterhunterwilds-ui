@@ -3,7 +3,7 @@ export type Monster = {
   name: string;
   description: string;
   elements: string[];
-  ilments: string[];
+  ailments: string[];
   weaknesses: string[];
   habitats: string[];
   size: string;

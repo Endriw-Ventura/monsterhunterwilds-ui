@@ -11,6 +11,6 @@ export function useMonsterList() {
     throw new Error("useMonsterList must be used within a MonsterListProvider");
   }
 
-  const { monsters, loading, error, loadData } = context;
-  return { monsters, loading, error, loadData }; 
+  const { monsters, loading, error, loadData, selectedMonster, setSelectedMonster } = context;
+  return { monsters, loading, error, loadData, selectedMonster, setSelectedMonster}; 
 }

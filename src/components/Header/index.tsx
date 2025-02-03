@@ -6,19 +6,27 @@ const StyledHeader = styled.header`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background: linear-gradient(#0b87d4, #00ffe1);
     font-size: 20px;
-    height: 100px;
+    max-height: 50px;
+    flex: 1;
     padding: 20px;
 `;
 
-const StyledButton = styled.button`
-    width: 60px;
-    height: 60px;
+const StyledButtonContainer = styled.div`
+    background:${({ theme }) => `linear-gradient(90deg, ${theme.primary}, ${theme.button})`};
+    padding: 2px;
     border-radius: 20px;
-    padding: 10px;
-    background-color: purple;
-    box-shadow: 10px 10px 10px rgba(3, 202, 209, 0.5);
+    height: 40px;
+    width: 94px;
+    box-shadow: ${({ theme }) => `0px 4px 5px ${theme.button}`};
+`;
+
+const StyledButton = styled.button`
+    width: 90px;
+    height: 35px;
+    border-radius: 20px;
+    background: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.text};
 `;
 export default function Header() {
 
@@ -29,9 +37,11 @@ export default function Header() {
             <h1>
                 Desenvolvido por Endriw Ventura
             </h1>
-            <StyledButton onClick={() => toggleTheme(isDarkTheme)}>
-               {isDarkTheme ? 'Modo Escuro' : 'Modo Claro'}
-            </StyledButton>
+            <StyledButtonContainer>
+                <StyledButton onClick={() => toggleTheme(isDarkTheme)}>
+                    {isDarkTheme ? 'Lightmode' : 'Darkmode'}
+                </StyledButton>
+            </StyledButtonContainer>
         </StyledHeader>
     );
 }

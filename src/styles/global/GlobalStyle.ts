@@ -11,10 +11,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.background};
+    background: ${({ theme }) => `linear-gradient(0deg, ${theme.primary}, ${theme.secondary})`};
     color: ${({ theme }) => theme.text};
     transition: all 0.3s ease;
     width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #root{
     height: 100vh;
     display: flex;
     flex-direction: column;

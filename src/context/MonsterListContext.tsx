@@ -11,9 +11,9 @@ interface MonsterListContextType {
   error: string | null;
   loading: boolean;
   monsters: Monster[];
-  selectedMonster: Monster | null;
+  selectedMonster: Monster | undefined;
   loadData: (url: string) => void;
-  setSelectedMonster: Dispatch<SetStateAction<Monster | null>>;
+  setSelectedMonster: Dispatch<SetStateAction<Monster | undefined>>;
 }
 
 export const MonsterListContext = createContext<MonsterListContextType | null>(null);
@@ -21,7 +21,7 @@ export const MonsterListProvider = ({ children }: ProviderProps ) => {
   const [error, setError] =  useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [monsters, setMonsters] = useState<Monster[]>([]);
-  const [selectedMonster, setSelectedMonster] = useState<Monster | null>(null);;
+  const [selectedMonster, setSelectedMonster] = useState<Monster | undefined>(undefined);;
   
   const loadData = async (url: string) => {
     setLoading(true);

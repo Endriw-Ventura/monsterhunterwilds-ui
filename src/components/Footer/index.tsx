@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 
 const StyledFooter = styled.footer`
-    footer {
         padding: 10px;
-        background: linear-gradient(black, purple);
         font-size: 20px;
         display: flex;
+        flex: 1;
         align-items: center;
         justify-content: center;
-        height: 100%;
-    }
+        max-height: 50px;
 `;
 
 export default function Footer() {
