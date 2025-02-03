@@ -7,8 +7,13 @@ import Card from "../../components/Card/index.tsx";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
-  
-
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
 `;
 
 
@@ -28,10 +33,10 @@ export default function Home() {
   }
 
   return (
-    <section>
+    <StyledSection>
       {monsters.map((monster) => (
         <Card key={monster.id} item={monster} />
       ))}
-    </section>
+    </StyledSection>
   );
 }
