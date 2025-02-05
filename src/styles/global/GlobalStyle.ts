@@ -16,8 +16,13 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.3s ease;
     width: 100%;
     height: 100vh;
+  }
+
+  #root{
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 `;
 

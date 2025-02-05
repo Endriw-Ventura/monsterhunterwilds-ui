@@ -7,15 +7,15 @@ import Card from "../../shared/components/Card";
 import styled from "styled-components";
 
 const StyledSection = styled.section`
-  padding: 40px;
+  padding: 40px 80px;
   display: flex;
-  flex: 2;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px 15px;
+  gap: 15px;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
 `;
 
 export default function Home() {

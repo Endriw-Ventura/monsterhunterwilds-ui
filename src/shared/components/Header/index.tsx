@@ -9,10 +9,9 @@ const StyledHeader = styled.header`
     align-items: center;
     font-size: 20px;
     max-height: 100px;
-    flex: 1;
     padding: 20px;
     background-image: url(${background});
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
 `;
