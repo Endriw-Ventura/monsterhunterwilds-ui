@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
     align-items: center;
     font-size: 20px;
     max-height: 100px;
+    height: 100px;
     padding: 20px;
     background-image: url(${background});
     background-position: bottom;

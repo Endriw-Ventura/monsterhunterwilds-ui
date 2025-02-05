@@ -14,7 +14,7 @@ interface ThemeProviderWrapperProps {
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 export const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+    const [isDarkTheme, setIsDarkTheme] = useState(true);
     const toggleTheme = () => {
         setIsDarkTheme(prev => !prev);
     }
