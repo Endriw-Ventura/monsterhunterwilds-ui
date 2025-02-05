@@ -14,12 +14,12 @@ const StyledCard = styled.div<{ $item: Monster }>`
   height: 200px;
   border-radius: 12px;
   display: flex;
-  padding: 20px;
+  padding: 15px;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   background: ${(props) => props.$item.elements[0] ? getBackgroundColor(props.$item.elements[0]) : getBackgroundColor('unknown')};
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5), 
-  5px 5px 5px rgba(0, 0, 0, 0.5) inset;
+  box-shadow: ${({ theme }) => `10px -7px 15px rgba(${theme.shadow})`};
 `;
 
 const StyledImage = styled.img`
@@ -34,18 +34,21 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledUpperContainer = styled.div`
-  flex: 2;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.5);
+
   :hover{
       cursor: pointer;
     }
 `;
 
 const StyledLowerContainer = styled.div`
-  flex: 1;
   width: 100%;
   text-align: center;
 `;

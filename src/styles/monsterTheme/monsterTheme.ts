@@ -29,7 +29,7 @@ export const ice = {
 }
 
 export const darkColor = {
-    primary: "black",
+    primary: "#5F5F5F",
     secondary: "#C3C3C3"
 }
 

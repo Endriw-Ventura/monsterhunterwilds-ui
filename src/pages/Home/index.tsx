@@ -12,7 +12,7 @@ const StyledSection = styled.section`
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 30px;
   width: 100%;
   height: 100%;
   overflow-y: auto;

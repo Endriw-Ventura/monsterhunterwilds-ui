@@ -8,19 +8,20 @@ interface StyleType {
 }
 
 const StyledSection = styled.section`
-    padding: 40px 60px;
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: column;
-    flex: 2;
+    flex-direction: row;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     align-items: center;
-    justify-content: space-around;
+    overflow-y: auto;
+    padding: 10px 80px;
 `;
 
 const StyledImage = styled.img`
-    height: 350px;
+    height: 700px;
+    padding: 10px;
     object-fit: contain;
     object-position: center;
     aspect-ratio: 1 / 1;
@@ -29,14 +30,6 @@ const StyledImage = styled.img`
 const StyledColumn = styled.div`
     display: flex;
     flex-direction: column;
-`;
-
-const StyledRow = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
 `;
 
 const StyledSubtitle = styled.h2`
@@ -58,12 +51,10 @@ export default function MonsterDetails(){
     return(
         selectedMonster ?
         <StyledSection>
-            <GradientTitle $type={selectedMonster?.elements[0]}>
-                {selectedMonster?.name}
-            </GradientTitle>
-            <StyledImage src={selectedMonster?.img} />
-            <StyledRow>
                 <StyledColumn>
+                    <GradientTitle $type={selectedMonster?.elements[0]}>
+                        {selectedMonster?.name}
+                    </GradientTitle> 
                 <StyledSubtitle>Elements</StyledSubtitle>
                     {
                         selectedMonster?.elements.map(
@@ -74,8 +65,6 @@ export default function MonsterDetails(){
                                     {element}
                             </GradientTitle>)
                     }
-                </StyledColumn>
-                <StyledColumn>
                     <StyledSubtitle>Weaknesses</StyledSubtitle>
                     {
                         selectedMonster?.weaknesses.map(
@@ -86,9 +75,7 @@ export default function MonsterDetails(){
                                     {weakness}
                             </GradientTitle>)
                     }
-                </StyledColumn>
-                <StyledColumn>
-                    <StyledSubtitle>Ailments</StyledSubtitle>
+                     <StyledSubtitle>Ailments</StyledSubtitle>
                     {
                         selectedMonster?.ailments.map(
                             ailment => 
@@ -99,7 +86,7 @@ export default function MonsterDetails(){
                             </GradientTitle>)
                     }
                 </StyledColumn>
-            </StyledRow>
+                <StyledImage src={selectedMonster?.img} />
         </StyledSection>
         : <NotFound />
     );
