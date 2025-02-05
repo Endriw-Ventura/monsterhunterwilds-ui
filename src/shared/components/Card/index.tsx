@@ -1,7 +1,7 @@
-import { Monster } from "../../config/types/monsterTypes";
-import NoIcon from "../../assets/images/unknown-icon.png";
+import { Monster } from "../../../types/monsterTypes";
+import NoIcon from "../../../assets/images/unknown-icon.png";
 import styled from "styled-components";
-import { getBackgroundColor } from "../../styles/monsterTheme/monsterTheme";
+import { getBackgroundColor } from "../../../styles/monsterTheme/monsterTheme";
 import { useNavigate } from "react-router-dom";
 
 interface CardProps{

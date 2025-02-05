@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useMonsterList } from "../../hooks/useMonsterList.ts";
 import { dataURL } from "../../config/config.ts";
-import LoadScreen from "../../components/LoadScreen/index.tsx";
-import ErrorPage from "../ErrorPage/index.tsx";
-import Card from "../../components/Card/index.tsx";
+import LoadScreen from "../../shared/components/LoadScreen";
+import ErrorPage from "../ErrorPage";
+import Card from "../../shared/components/Card";
 import styled from "styled-components";
 
 const StyledSection = styled.section`

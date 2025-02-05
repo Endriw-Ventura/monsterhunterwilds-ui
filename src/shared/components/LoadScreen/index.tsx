@@ -15,8 +15,18 @@ const Loader = styled.div`
   margin: auto;
 `;
 
+const StyledSection = styled.section`
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export default function LoadScreen(){
-    return(<div>
-        <Loader />
-    </div>)
-}
+    return(
+      <StyledSection>
+          <Loader />
+      </StyledSection>
+    )
+  }

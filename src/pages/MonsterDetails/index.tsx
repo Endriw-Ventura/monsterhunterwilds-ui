@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useMonsterList } from "../../hooks/useMonsterList";
 import { getBackgroundColor } from "../../styles/monsterTheme/monsterTheme";
+import NotFound from "../NotFound";
 
 interface StyleType {
     $type: string
@@ -11,14 +12,15 @@ const StyledSection = styled.section`
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
+    flex: 2;
     width: 100%;
     height: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 `;
 
 const StyledImage = styled.img`
-    height: 450px;
+    height: 350px;
     object-fit: contain;
     object-position: center;
     aspect-ratio: 1 / 1;
@@ -35,11 +37,6 @@ const StyledRow = styled.div`
     justify-content: space-between;
     width: 100%;
     padding: 10px;
-`;
-
-const StyledTitle = styled.h1`
-    font-size: 38px;
-    font-weight: 700;
 `;
 
 const StyledSubtitle = styled.h2`
@@ -59,9 +56,12 @@ const GradientTitle = styled.h1<StyleType>`
 export default function MonsterDetails(){
     const { selectedMonster } = useMonsterList();
     return(
+        selectedMonster ?
         <StyledSection>
+            <GradientTitle $type={selectedMonster?.elements[0]}>
+                {selectedMonster?.name}
+            </GradientTitle>
             <StyledImage src={selectedMonster?.img} />
-            <StyledTitle>{selectedMonster?.name}</StyledTitle>
             <StyledRow>
                 <StyledColumn>
                 <StyledSubtitle>Elements</StyledSubtitle>
@@ -101,5 +101,6 @@ export default function MonsterDetails(){
                 </StyledColumn>
             </StyledRow>
         </StyledSection>
+        : <NotFound />
     );
 }

@@ -1,15 +1,20 @@
 import styled from "styled-components";
-import { useThemeContext } from "../../hooks/useThemeContext";
+import { useThemeContext } from "../../../hooks/useThemeContext";
+import background from "../../../assets/images/header-background.png";
 
 const StyledHeader = styled.header`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     font-size: 20px;
-    max-height: 50px;
+    max-height: 100px;
     flex: 1;
     padding: 20px;
+    background-image: url(${background});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 const StyledButtonContainer = styled.div`
@@ -28,15 +33,13 @@ const StyledButton = styled.button`
     background: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.text};
 `;
+
 export default function Header() {
 
     const { isDarkTheme, toggleTheme } = useThemeContext();
 
     return(
         <StyledHeader>  
-            <h1>
-                Desenvolvido por Endriw Ventura
-            </h1>
             <StyledButtonContainer>
                 <StyledButton onClick={() => toggleTheme(isDarkTheme)}>
                     {isDarkTheme ? 'Lightmode' : 'Darkmode'}

@@ -1,7 +1,7 @@
 import { createContext, Dispatch, ReactNode, SetStateAction } from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Monster } from "../config/types/monsterTypes";
+import { Monster } from "../types/monsterTypes";
 
 interface ProviderProps {
   children: ReactNode

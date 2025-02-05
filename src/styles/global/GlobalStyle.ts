@@ -19,12 +19,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
   }
-
-  #root{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
 export default GlobalStyle;
