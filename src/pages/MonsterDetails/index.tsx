@@ -25,11 +25,18 @@ const StyledImage = styled.img`
     object-fit: contain;
     object-position: center;
     aspect-ratio: 1 / 1;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 10px rgba(1, 230, 246, 0.5);
 `;
 
 const StyledColumn = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    width: 50%;
+    height: 700px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 10px rgba(1, 230, 246, 0.5);
 `;
 
 const StyledSubtitle = styled.h2`

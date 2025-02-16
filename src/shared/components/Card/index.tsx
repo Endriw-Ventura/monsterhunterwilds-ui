@@ -19,7 +19,12 @@ const StyledCard = styled.div<{ $item: Monster }>`
   justify-content: space-between;
   align-items: center;
   background: ${(props) => props.$item.elements[0] ? getBackgroundColor(props.$item.elements[0]) : getBackgroundColor('unknown')};
-  box-shadow: ${({ theme }) => `10px -7px 15px rgba(${theme.shadow})`};
+  box-shadow: ${({ theme }) => `15px -7px 15px rgba(${theme.shadow})`};
+
+  &:hover{
+     box-shadow: -7px 0px 15px 10px rgba(209, 23, 247, 0.7),
+     7px 0px 15px 10px rgba(209, 23, 247, 0.7);
+  }
 `;
 
 const StyledImage = styled.img`
