@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import { useMonsterList } from "../../hooks/useMonsterList";
-import { getBackgroundColor } from "../../styles/monsterTheme/monsterTheme";
 import NotFound from "../NotFound";
-
-interface StyleType {
-    $type: string
-}
+import GradientTitle from "../../shared/components/GradientTitle";
 
 const StyledSection = styled.section`
     display: flex;
@@ -44,57 +40,76 @@ const StyledSubtitle = styled.h2`
     font-weight: 600;
 `;
 
-const GradientTitle = styled.h1<StyleType>`
-  background: ${(props) => props.$type ? getBackgroundColor(props.$type) : getBackgroundColor('unknown')};
-  -webkit-background-clip: text;
-  background-clip: none;
-  -webkit-text-fill-color: transparent;
-  font-size: 28px;
-  font-weight: 500;
+const StyledText = styled.h2`
+    font-size: 20px;
+    font-weight: 400;
 `;
+
+
 
 export default function MonsterDetails(){
     const { selectedMonster } = useMonsterList();
+
+    if(!selectedMonster)
+        return <NotFound />
+
     return(
-        selectedMonster ?
         <StyledSection>
                 <StyledColumn>
-                    <GradientTitle $type={selectedMonster?.elements[0]}>
-                        {selectedMonster?.name}
+                    <GradientTitle 
+                        color={selectedMonster.elements[0]}
+                    >
+                        {selectedMonster.name}
                     </GradientTitle> 
-                <StyledSubtitle>Elements</StyledSubtitle>
+
+                    <StyledSubtitle>
+                        Elements
+                    </StyledSubtitle>
+                    
                     {
-                        selectedMonster?.elements.map(
+                        selectedMonster.elements.map(
                             element => 
-                            <GradientTitle 
-                                $type={element}
-                                key={element}>
+                                <GradientTitle 
+                                    color={element}
+                                    key={element}
+                                >
                                     {element}
-                            </GradientTitle>)
+                                </GradientTitle>
+                        )
                     }
-                    <StyledSubtitle>Weaknesses</StyledSubtitle>
+
+                    <StyledSubtitle>
+                        Weaknesses
+                    </StyledSubtitle>
+
                     {
-                        selectedMonster?.weaknesses.map(
+                        selectedMonster.weaknesses.map(
                             weakness => 
-                            <GradientTitle 
-                                $type={weakness} 
-                                key={weakness}>
-                                    {weakness}
-                            </GradientTitle>)
+                                <GradientTitle 
+                                    color={weakness} 
+                                    key={weakness}>
+                                        {weakness}
+                                </GradientTitle>
+                        )
                     }
-                     <StyledSubtitle>Ailments</StyledSubtitle>
+
+                    <StyledSubtitle>
+                        Ailments
+                    </StyledSubtitle>
+
                     {
-                        selectedMonster?.ailments.map(
+                        selectedMonster.ailments.map(
                             ailment => 
-                            <GradientTitle 
-                                $type={ailment} 
-                                key={ailment}>
-                                    {ailment}
-                            </GradientTitle>)
+                                <GradientTitle 
+                                    color={ailment} 
+                                    key={ailment}>
+                                        {ailment}
+                                </GradientTitle>
+                        )
                     }
+                    
                 </StyledColumn>
-                <StyledImage src={selectedMonster?.img} />
+                <StyledImage src={selectedMonster.img} />
         </StyledSection>
-        : <NotFound />
     );
 }
