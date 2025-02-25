@@ -34,7 +34,7 @@ export default function Footer() {
     return (
         <StyledFooter>
             <StyledLogo src={logo}/>
-            <StyledText>Desenvolvido por Endriw Ventura</StyledText>
+            <StyledText>Developed by Endriw Ventura</StyledText>
         </StyledFooter>
     );
 }

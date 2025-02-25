@@ -56,6 +56,10 @@ export default function MonsterDetails(){
     return(
         <StyledSection>
                 <StyledColumn>
+                    <StyledSubtitle>
+                        Name
+                    </StyledSubtitle>
+                    
                     <GradientTitle 
                         color={selectedMonster.elements[0]}
                     >
@@ -107,7 +111,37 @@ export default function MonsterDetails(){
                                 </GradientTitle>
                         )
                     }
-                    
+
+                    <StyledSubtitle>
+                        Habitats
+                    </StyledSubtitle>
+
+                    {
+                        selectedMonster.habitats.map(
+                            habitat => 
+                                <StyledText 
+                                    color={habitat} 
+                                    key={habitat}>
+                                        {habitat}
+                                </StyledText>
+                        )
+                    }
+                    <StyledSubtitle>
+                        Size
+                    </StyledSubtitle>
+
+                    <StyledText>
+                        {selectedMonster.size}
+                    </StyledText>
+
+                    <StyledSubtitle>
+                        Description
+                    </StyledSubtitle>
+
+                    <StyledText>
+                        {selectedMonster.description}
+                    </StyledText>
+
                 </StyledColumn>
                 <StyledImage src={selectedMonster.img} />
         </StyledSection>
