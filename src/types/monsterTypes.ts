@@ -10,4 +10,5 @@ export type Monster = {
   img: string;
   icon: string;
   drops: string[];
+  type: string;
 }

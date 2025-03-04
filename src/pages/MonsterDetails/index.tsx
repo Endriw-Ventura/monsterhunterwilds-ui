@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import { useMonsterList } from "../../hooks/useMonsterList";
-import NotFound from "../NotFound";
-import GradientTitle from "../../shared/components/GradientTitle";
+import styled from 'styled-components'
+import { useMonsterList } from '../../hooks/useMonsterList'
+import GradientTitle from '../../shared/components/GradientTitle'
+import Home from '../Home'
+import DetailsInfo from '../../shared/components/DetailsInfo'
 
 const StyledSection = styled.section`
     display: flex;
@@ -13,7 +14,7 @@ const StyledSection = styled.section`
     align-items: center;
     overflow-y: auto;
     padding: 10px 80px;
-`;
+`
 
 const StyledImage = styled.img`
     height: 700px;
@@ -23,7 +24,7 @@ const StyledImage = styled.img`
     aspect-ratio: 1 / 1;
     border-radius: 15px;
     box-shadow: 0px 0px 15px 10px rgba(1, 230, 246, 0.5);
-`;
+`
 
 const StyledColumn = styled.div`
     display: flex;
@@ -33,117 +34,68 @@ const StyledColumn = styled.div`
     height: 700px;
     border-radius: 15px;
     box-shadow: 0px 0px 15px 10px rgba(1, 230, 246, 0.5);
-`;
-
-const StyledSubtitle = styled.h2`
-    font-size: 28px;
-    font-weight: 600;
-`;
+`
 
 const StyledText = styled.h2`
     font-size: 20px;
     font-weight: 400;
-`;
+`
 
+export default function MonsterDetails() {
+    const { selectedMonster } = useMonsterList()
 
+    if (!selectedMonster) return <Home />
 
-export default function MonsterDetails(){
-    const { selectedMonster } = useMonsterList();
-
-    if(!selectedMonster)
-        return <NotFound />
-
-    return(
+    return (
         <StyledSection>
-                <StyledColumn>
-                    <StyledSubtitle>
-                        Name
-                    </StyledSubtitle>
-                    
-                    <GradientTitle 
-                        color={selectedMonster.elements[0]}
-                    >
+            <StyledColumn>
+                <DetailsInfo title={'Name'}>
+                    <GradientTitle color={selectedMonster.elements[0]}>
                         {selectedMonster.name}
-                    </GradientTitle> 
+                    </GradientTitle>
+                </DetailsInfo>
 
-                    <StyledSubtitle>
-                        Elements
-                    </StyledSubtitle>
-                    
-                    {
-                        selectedMonster.elements.map(
-                            element => 
-                                <GradientTitle 
-                                    color={element}
-                                    key={element}
-                                >
-                                    {element}
-                                </GradientTitle>
-                        )
-                    }
+                <DetailsInfo title={'Elements'}>
+                    {selectedMonster.elements.map((element) => (
+                        <GradientTitle color={element} key={element}>
+                            {element}
+                        </GradientTitle>
+                    ))}
+                </DetailsInfo>
 
-                    <StyledSubtitle>
-                        Weaknesses
-                    </StyledSubtitle>
+                <DetailsInfo title={'Weaknesses'}>
+                    {selectedMonster.weaknesses.map((weakness) => (
+                        <GradientTitle color={weakness} key={weakness}>
+                            {weakness}
+                        </GradientTitle>
+                    ))}
+                </DetailsInfo>
 
-                    {
-                        selectedMonster.weaknesses.map(
-                            weakness => 
-                                <GradientTitle 
-                                    color={weakness} 
-                                    key={weakness}>
-                                        {weakness}
-                                </GradientTitle>
-                        )
-                    }
+                <DetailsInfo title={'Ailments'}>
+                    {selectedMonster.ailments.map((ailment) => (
+                        <GradientTitle color={ailment} key={ailment}>
+                            {ailment}
+                        </GradientTitle>
+                    ))}
+                </DetailsInfo>
 
-                    <StyledSubtitle>
-                        Ailments
-                    </StyledSubtitle>
+                <DetailsInfo title={'Habitats'}>
+                    {selectedMonster.habitats.map((habitat) => (
+                        <StyledText color={habitat} key={habitat}>
+                            {habitat}
+                        </StyledText>
+                    ))}
+                </DetailsInfo>
 
-                    {
-                        selectedMonster.ailments.map(
-                            ailment => 
-                                <GradientTitle 
-                                    color={ailment} 
-                                    key={ailment}>
-                                        {ailment}
-                                </GradientTitle>
-                        )
-                    }
+                <DetailsInfo title={'Size'}>
+                    <StyledText>{selectedMonster.size}</StyledText>
+                </DetailsInfo>
 
-                    <StyledSubtitle>
-                        Habitats
-                    </StyledSubtitle>
-
-                    {
-                        selectedMonster.habitats.map(
-                            habitat => 
-                                <StyledText 
-                                    color={habitat} 
-                                    key={habitat}>
-                                        {habitat}
-                                </StyledText>
-                        )
-                    }
-                    <StyledSubtitle>
-                        Size
-                    </StyledSubtitle>
-
-                    <StyledText>
-                        {selectedMonster.size}
-                    </StyledText>
-
-                    <StyledSubtitle>
-                        Description
-                    </StyledSubtitle>
-
-                    <StyledText>
-                        {selectedMonster.description}
-                    </StyledText>
-
-                </StyledColumn>
-                <StyledImage src={selectedMonster.img} />
+                <DetailsInfo title={'Description'}>
+                    <StyledText>{selectedMonster.description}</StyledText>
+                </DetailsInfo>
+            </StyledColumn>
+            <StyledImage src={selectedMonster.img} />
         </StyledSection>
-    );
+    )
 }
