@@ -1,5 +1,4 @@
-import { createGlobalStyle } from "styled-components";
-
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
      * {
@@ -24,6 +23,6 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: space-between;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

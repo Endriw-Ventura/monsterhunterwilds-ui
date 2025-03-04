@@ -1,21 +1,21 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import AppRoutes from './router';
-import { MonsterListProvider } from "./context/MonsterListContext";
-import { ThemeProviderWrapper } from './context/ThemeContext';
-import Footer from './shared/components/Footer';
-import Header from './shared/components/Header';
-import GlobalStyle from './styles/global/GlobalStyle';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import AppRoutes from './router'
+import { MonsterListProvider } from './context/MonsterListContext'
+import { ThemeProviderWrapper } from './context/ThemeContext'
+import Footer from './shared/components/Footer'
+import Header from './shared/components/Header'
+import GlobalStyle from './styles/global/GlobalStyle'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ThemeProviderWrapper>
-      <MonsterListProvider>
-        <GlobalStyle />
-        <Header />
-        <AppRoutes />
-        <Footer />
-      </MonsterListProvider>
-    </ThemeProviderWrapper>
-  </StrictMode>,
+    <StrictMode>
+        <ThemeProviderWrapper>
+            <MonsterListProvider>
+                <GlobalStyle />
+                <Header />
+                <AppRoutes />
+                <Footer />
+            </MonsterListProvider>
+        </ThemeProviderWrapper>
+    </StrictMode>
 )

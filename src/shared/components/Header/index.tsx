@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 //import { useThemeContext } from "../../../hooks/useThemeContext";
-import background from "../../../assets/images/header-background.png";
+import background from '../../../assets/images/header-background.png'
 
 const StyledHeader = styled.header`
     display: flex;
@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-`;
+`
 
 /*const StyledButtonContainer = styled.div`
     background:${({ theme }) => `linear-gradient(90deg, ${theme.primary}, ${theme.button})`};
@@ -35,11 +35,10 @@ const StyledButton = styled.button`
 `;*/
 
 export default function Header() {
-
     //const { isDarkTheme, toggleTheme } = useThemeContext();
 
-    return(
-        <StyledHeader>  
+    return (
+        <StyledHeader>
             {/*<StyledButtonContainer>
                 <StyledButton onClick={() => toggleTheme(isDarkTheme)}>
                     {isDarkTheme ? 'Lightmode' : 'Darkmode'}
@@ -47,5 +46,5 @@ export default function Header() {
             </StyledButtonContainer>
             */}
         </StyledHeader>
-    );
+    )
 }
