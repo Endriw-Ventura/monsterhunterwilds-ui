@@ -29,6 +29,7 @@ const StyledImage = styled.img`
 const StyledColumn = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     padding: 10px;
     width: 50%;
     height: 700px;
@@ -87,12 +88,34 @@ export default function MonsterDetails() {
                     ))}
                 </DetailsInfo>
 
+                <DetailsInfo title={'Species'}>
+                    <StyledText>{selectedMonster.species}</StyledText>
+                </DetailsInfo>
+
                 <DetailsInfo title={'Size'}>
                     <StyledText>{selectedMonster.size}</StyledText>
                 </DetailsInfo>
 
                 <DetailsInfo title={'Description'}>
                     <StyledText>{selectedMonster.description}</StyledText>
+                </DetailsInfo>
+
+                <DetailsInfo title="Drops">
+                    {Object.entries(selectedMonster.drops).map(
+                        ([rank, items]) => (
+                            <div key={rank}>
+                                <h4>
+                                    {rank.charAt(0).toUpperCase() +
+                                        rank.slice(1)}
+                                </h4>{' '}
+                                {items.map((drop, index) => (
+                                    <StyledText key={index} color={drop}>
+                                        {drop}
+                                    </StyledText>
+                                ))}
+                            </div>
+                        )
+                    )}
                 </DetailsInfo>
             </StyledColumn>
             <StyledImage src={selectedMonster.img} />

@@ -9,6 +9,10 @@ export type Monster = {
     size: string
     img: string
     icon: string
-    drops: string[]
-    type: string
+    drops: {
+        lowrank: string[]
+        highrank: string[]
+        masterrank: string[]
+    }
+    species: string
 }
